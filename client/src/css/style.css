@@ -1,0 +1,27 @@
+
+
+#header
+{
+    width: 100%;
+    background-color: lightblue;
+    padding: 20px;
+}
+#footer
+{
+    background-color: lightgray;
+    color: black;
+    padding: 20px;
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+#content
+{
+    padding: 20px;
+}
+h1{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color:navy;
+    text-align: center;
+}
