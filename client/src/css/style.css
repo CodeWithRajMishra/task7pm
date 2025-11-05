@@ -25,3 +25,38 @@ h1{
     color:navy;
     text-align: center;
 }
+
+#adminheader
+{
+    width: 100%;
+    height: 100px;
+    background-color: lightgreen;
+    color: green;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 20px;
+}
+
+#admincontainer
+{
+    display: flex;
+    justify-content: space-between;
+}
+#adminmenu
+{
+    width: 15%;
+    padding: 20px;
+    background-color: black;
+}
+#admindata
+{
+    width: 85%;
+    padding: 20px;
+}
+.adminmenu
+{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

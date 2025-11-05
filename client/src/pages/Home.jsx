@@ -2,11 +2,15 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 const Home = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [usertype, setUserType] = useState("");
 
+    const navigate = useNavigate();
 
 
     const handleSubmit = async (e) => {
@@ -16,8 +20,20 @@ const Home = () => {
                 let api = `${import.meta.env.VITE_BACKEND_URL}/admin/login`;
                 const response = await axios.post(api, {email, password})
                 console.log(response);
+              
+                 localStorage.setItem("adminname", response.data.admin.name);
+                 localStorage.setItem("adminemail", response.data.admin.email)
+               
+                   toast.success(response.data.msg);
+                 setTimeout(()=>{
+                     navigate("/admin-dashboard");
+                   
+                 }, 2000);
+                  
+                   
             } catch (error) {
-                console.log(error);
+                toast.error(error.response.data.msg);
+              
             }
         }
         else {
@@ -55,6 +71,8 @@ const Home = () => {
                     Submit
                 </Button>
             </Form>
+
+             
         </>
     )
 }
