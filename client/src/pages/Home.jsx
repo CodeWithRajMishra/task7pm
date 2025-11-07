@@ -37,7 +37,27 @@ const Home = () => {
             }
         }
         else {
-            alert("Employee")
+          
+            try {
+                   let api = `${import.meta.env.VITE_BACKEND_URL}/employee/login`;
+                    const response = await axios.post(api, {email, password})
+                console.log(response);
+              
+                 localStorage.setItem("empname", response.data.admin.name);
+                 localStorage.setItem("empemail", response.data.admin.email)
+                  localStorage.setItem("empemail", response.data.admin.designation)
+               
+                   toast.success(response.data.msg);
+                 setTimeout(()=>{
+                     navigate("/admin-dashboard");
+                   
+                 }, 2000);
+                  
+                   
+            } catch (error) {
+                 console.log(error)
+            }
+             
         }
 
 

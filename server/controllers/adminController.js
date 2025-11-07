@@ -1,5 +1,6 @@
 const AdminModel = require("../models/adminModel");
 const EmpModel = require("../models/empModel");
+const TaskModel = require("../models/taskModel");
 const EmpPass = require("../middlewares/empPassword");
 const nodemailer = require('nodemailer');
 
@@ -47,15 +48,15 @@ const createUser = async (req, res) => {
         text: `Welcome ${name}! \n Your Task Management Password is : ${userPassword}`
     };
 
-   transporter.sendMail(mailOptions, (error, info) => {
- if (error) {
- console.error("Error occurred:", error);
- res.status(500).send('Error in sending email. Please try againlater.');
- } else {
- console.log('Email sent:', info.response);
- res.send('Email sent successfully!');
- }
- });
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.error("Error occurred:", error);
+            res.status(500).send('Error in sending email. Please try againlater.');
+        } else {
+            console.log('Email sent:', info.response);
+            res.send('Email sent successfully!');
+        }
+    });
 
 
     const employee = await EmpModel.create({
@@ -66,8 +67,27 @@ const createUser = async (req, res) => {
     })
     res.status(201).send("New User Created!!!");
 }
+const showUser = async (req, res) => {
+
+    const employee = await EmpModel.find();
+    res.status(200).send(employee);
+}
+
+const taskAssign = async (req, res) => {
+    const { tasktitle, duration, priority, empid } = req.body;
+
+    const task = await TaskModel.create({
+        tasktitle: tasktitle,
+        duration: duration,
+        priority: priority,
+        empid: empid
+    })
+    res.status(201).send("Task Succesfully Assigned!");
+}
 
 module.exports = {
     adminLogin,
-    createUser
+    createUser,
+    showUser,
+    taskAssign
 }
