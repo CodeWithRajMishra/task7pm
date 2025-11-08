@@ -60,3 +60,39 @@ h1{
     text-decoration: none;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+#empheader
+{
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    background-color: rgb(161, 221, 161);
+    color: green;
+    padding-top: 20px;
+}
+
+#empcontainer
+{
+    display: flex;
+    justify-content: space-between;
+}
+#empmenu
+{
+    width: 15%;
+    padding: 20px;
+    background-color: rgb(26, 97, 26);
+    color: white;
+}
+#empdata
+{
+    width: 85%;
+    padding: 20px;
+    font-size: 20px;
+}
+.menucolor
+{
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+}

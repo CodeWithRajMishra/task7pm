@@ -5,6 +5,8 @@ import AdminDashBoard from "./admin/AdminDashboard";
 import { ToastContainer } from 'react-toastify';
 import CreateUser from "./admin/CreateUser";
 import AssignTask from "./admin/AssignTask";
+import EmpDashBoard from "./pages/EmpDashBoard";
+import EmpTask from "./pages/EmpTask";
 const App=()=>{
   return(
     <>
@@ -22,7 +24,13 @@ const App=()=>{
             <Route path="assign-task" element={<AssignTask/>}/>
           </Route>     
          </Routes>
- 
+
+        <Routes>
+          <Route path="emp-dashboard" element={<EmpDashBoard/>}>
+             <Route path="emptask" element={<EmpTask/>} />
+          </Route>
+        </Routes>
+
      <ToastContainer autoClose={2000} />
        </BrowserRouter>
 

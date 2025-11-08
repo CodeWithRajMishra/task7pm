@@ -2,6 +2,7 @@ const express = require("express");
 const app=express();
 require("dotenv").config();
 const AdminRoute= require("./routers/adminRoutes");
+const EmpRoute = require("./routers/empRoute");
 const cors = require("cors");
 const bodyparser = require('body-parser')
 const mongoose = require("mongoose");
@@ -17,7 +18,7 @@ app.use(bodyparser.json())
 
 
 app.use("/admin", AdminRoute);
-
+app.use("/employee", EmpRoute);
 
 
 const Port = process.env.PORT || 8000

@@ -43,13 +43,14 @@ const Home = () => {
                     const response = await axios.post(api, {email, password})
                 console.log(response);
               
-                 localStorage.setItem("empname", response.data.admin.name);
-                 localStorage.setItem("empemail", response.data.admin.email)
-                  localStorage.setItem("empemail", response.data.admin.designation)
-               
+                 localStorage.setItem("empname", response.data.employee.name);
+                 localStorage.setItem("empemail", response.data.employee.email)
+                  localStorage.setItem("designation", response.data.employee.designation);
+                   localStorage.setItem("empid", response.data.employee._id);
+
                    toast.success(response.data.msg);
                  setTimeout(()=>{
-                     navigate("/admin-dashboard");
+                     navigate("/emp-dashboard");
                    
                  }, 2000);
                   

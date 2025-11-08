@@ -5,7 +5,8 @@ const EmpController = require("../controllers/empController");
 
 
 route.post("/login", EmpController.empLogin);
-r
+route.get("/showtask", EmpController.showTask);
+
 
 
 
