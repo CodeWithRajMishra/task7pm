@@ -27,7 +27,19 @@ const showTask=async(req, res)=>{
     res.status(200).send(task);
 }
 
+const taskReport=async(req,res)=>{
+    const { tid,   taskstatus,   completionday,   comment}=req.body;
+    
+    const task = await TaskModel.findByIdAndUpdate(tid, {
+         taskstatus:taskstatus,
+    completionday:completionday,
+    comment:comment,
+    tasksend:true
+    })
+}
+
 module.exports ={
     empLogin,
-    showTask
+    showTask,
+    taskReport
 }

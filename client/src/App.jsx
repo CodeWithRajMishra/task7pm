@@ -7,6 +7,7 @@ import CreateUser from "./admin/CreateUser";
 import AssignTask from "./admin/AssignTask";
 import EmpDashBoard from "./pages/EmpDashBoard";
 import EmpTask from "./pages/EmpTask";
+import SeeReport from "./admin/SeeReport";
 const App=()=>{
   return(
     <>
@@ -22,6 +23,7 @@ const App=()=>{
           <Route path="admin-dashboard" element={<AdminDashBoard/>}>
             <Route path="create-user" element={<CreateUser/>} />
             <Route path="assign-task" element={<AssignTask/>}/>
+            <Route path="see-report" element={<SeeReport/>}/>
           </Route>     
          </Routes>
 

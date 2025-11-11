@@ -80,14 +80,22 @@ const taskAssign = async (req, res) => {
         tasktitle: tasktitle,
         duration: duration,
         priority: priority,
-        empid: empid
+        empid: empid,
+         tasksend:false
+
     })
     res.status(201).send("Task Succesfully Assigned!");
+}
+
+const seeReport=async(req, res)=>{
+ const task = await TaskModel.find({sendreport:true});
+ res.status(200).send(task);
 }
 
 module.exports = {
     adminLogin,
     createUser,
     showUser,
-    taskAssign
+    taskAssign,
+    seeReport
 }
