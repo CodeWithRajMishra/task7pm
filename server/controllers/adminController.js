@@ -81,15 +81,23 @@ const taskAssign = async (req, res) => {
         duration: duration,
         priority: priority,
         empid: empid,
-         tasksend:false
+        tasksend:false
 
     })
     res.status(201).send("Task Succesfully Assigned!");
 }
 
 const seeReport=async(req, res)=>{
- const task = await TaskModel.find({sendreport:true});
+ const task = await TaskModel.find({tasksend:true}).populate("empid");
  res.status(200).send(task);
+}
+
+const taskReassign=async(req, res)=>{
+    const {tid}= req.query;
+    const task= await TaskModel.findByIdAndUpdate(tid, {
+        tasksend: false
+    })
+    res.send("Task Reassgined!!!");
 }
 
 module.exports = {
@@ -97,5 +105,6 @@ module.exports = {
     createUser,
     showUser,
     taskAssign,
-    seeReport
+    seeReport,
+    taskReassign
 }

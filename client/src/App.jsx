@@ -8,6 +8,7 @@ import AssignTask from "./admin/AssignTask";
 import EmpDashBoard from "./pages/EmpDashBoard";
 import EmpTask from "./pages/EmpTask";
 import SeeReport from "./admin/SeeReport";
+import CompletedTask from "./pages/CompletedTask";
 const App=()=>{
   return(
     <>
@@ -30,6 +31,8 @@ const App=()=>{
         <Routes>
           <Route path="emp-dashboard" element={<EmpDashBoard/>}>
              <Route path="emptask" element={<EmpTask/>} />
+             <Route  path="completedtask" 
+             element={<CompletedTask/>}/>
           </Route>
         </Routes>
 

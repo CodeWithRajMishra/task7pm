@@ -11,7 +11,8 @@ const EmpDashBoard = () => {
                     <div id="empmenu">
                         <Link to="emptask" className="menucolor">My Task</Link>
                         <br />
-                        <Link to="emptask" className="menucolor">My Task</Link>
+                  <Link to="completedtask" className="menucolor">
+                 Completed Task</Link>
                           <br />
                         <Link to="emptask" className="menucolor">My Task</Link>
                           <br />

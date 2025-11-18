@@ -9,6 +9,8 @@ route.post("/createuser", AdminController.createUser);
 route.get("/showuser", AdminController.showUser);
 route.post("/taskassign", AdminController.taskAssign);
 route.get("/seereport", AdminController.seeReport);
+route.get("/taskreassign", AdminController.taskReassign);
+
 
 
 

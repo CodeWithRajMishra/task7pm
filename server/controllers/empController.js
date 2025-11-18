@@ -23,7 +23,7 @@ const empLogin=async(req, res)=>{
 
 const showTask=async(req, res)=>{
      const { id } = req.query;
-    const task= await TaskModel.find({empid:id});
+    const task= await TaskModel.find({$and:[{empid:id},{tasksend:false}]});
     res.status(200).send(task);
 }
 
@@ -38,8 +38,14 @@ const taskReport=async(req,res)=>{
     })
 }
 
+const showCompletedTask=async(req, res)=>{
+       const { id } = req.query;
+    const task= await TaskModel.find({$and:[{empid:id}, {tasksend:true}]});
+    res.status(200).send(task);
+}
 module.exports ={
     empLogin,
     showTask,
-    taskReport
+    taskReport,
+    showCompletedTask
 }
